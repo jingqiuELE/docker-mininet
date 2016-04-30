@@ -1,14 +1,15 @@
-FROM debian:wheezy
+FROM ubuntu:14.04
 
 MAINTAINER Ozzy Johnson <docker@ozzy.io>
 
-ENV DEBIAN_FRONTEND noninteractive
+LABEL Description="This image is used to start a mininet env" Vendor="Jing Qiu" Version="1.0"
 
-ENV MININET_REPO https://github.com/mininet/mininet.git
+
+ENV MININET_REPO git://github.com/mininet/mininet
 ENV MININET_INSTALLER mininet/util/install.sh
 ENV INSTALLER_SWITCHES -fbinptvwyx
 
-WORKDIR /tmp
+WORKDIR /projects
 
 # Update and install minimal.
 RUN \
@@ -31,30 +32,17 @@ RUN \
 # Clone and install.
     && git clone $MININET_REPO \
 
-# A few changes to make the install script behave.
-    && sed -e 's/sudo //g' \
-    	-e 's/~\//\//g' \
-    	-e 's/\(apt-get -y install\)/\1 --no-install-recommends --no-install-suggests/g' \
-    	-i $MININET_INSTALLER \
-
 # Install script expects to find this. Easier than patching that part of the script.
     && touch /.bashrc \
+
+# Set the mininet tag to install to be 2.2.1
+    && cd mininet; git checkout -b 2.2.1 2.2.1; cd .. \
 
 # Proceed with the install.
     && chmod +x $MININET_INSTALLER \
     && ./$MININET_INSTALLER -nfv \
 
-# Clean up source.
-    && rm -rf /tmp/mininet \
-              /tmp/openflow \
-
-# Clean up packages.
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-
 VOLUME ["/data"]
-
-WORKDIR /data
 
 # Default command.
 CMD ["bash"]
