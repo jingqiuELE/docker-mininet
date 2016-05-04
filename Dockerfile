@@ -42,7 +42,8 @@ RUN \
     && chmod +x $MININET_INSTALLER \
     && ./$MININET_INSTALLER -nfv \
 
+
 VOLUME ["/data"]
 
 # Default command.
-CMD ["bash"]
+CMD service openvswitch-switch start; sudo mn
