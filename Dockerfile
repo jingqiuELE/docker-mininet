@@ -46,4 +46,4 @@ RUN \
 VOLUME ["/data"]
 
 # Default command.
-CMD service openvswitch-switch start; sudo mn
+CMD ["bash"] 
