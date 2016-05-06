@@ -28,6 +28,7 @@ RUN \
     openssh-client \
     patch \
     vim \
+    iptables \
 
 # Clone and install.
     && git clone $MININET_REPO \
