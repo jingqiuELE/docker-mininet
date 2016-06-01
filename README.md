@@ -15,3 +15,8 @@ Run mininet with userspace vswitches.
 
 	mn --switch user
 
+### Prebuilt docker image from dockerhub:
+
+You can pull the prebuilt image using below command:
+
+        docker pull jingqiu/docker-mininet-auto
