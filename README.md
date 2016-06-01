@@ -5,9 +5,17 @@ Mininet with OpenFlow and OpenVSwitch from source in a Docker container. There a
 
 ### Usage:
 
-Pull or build the image.
+#### Pull the image:
 
-	docker run --privileged=true -it --rm tinyvpn/mininet
+        docker pull jingqiu/docker-mininet-auto
+        
+or build the image:
+
+        docker build -t jingqiu/docker-mininet-auto .
+
+#### Run the container:
+
+	docker run --privileged=true -it --rm jingqiu/docker-mininet-auto
 
 It seems like this should be doable with --cap-add rather than going fully privileged, but I haven't spent much time with it.
 
@@ -15,8 +23,4 @@ Run mininet with userspace vswitches.
 
 	mn --switch user
 
-### Prebuilt docker image from dockerhub:
-
-You can pull the prebuilt image using below command:
-
-        docker pull jingqiu/docker-mininet-auto
+        
