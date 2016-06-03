@@ -28,6 +28,7 @@ RUN \
     openssh-client \
     patch \
     vim \
+    iptables \
 
 # Clone and install.
     && git clone $MININET_REPO \
@@ -46,4 +47,4 @@ RUN \
 VOLUME ["/data"]
 
 # Default command.
-CMD service openvswitch-switch start; sudo mn
+CMD ["bash"] 
