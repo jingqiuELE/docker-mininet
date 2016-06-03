@@ -36,9 +36,6 @@ RUN \
 # Install script expects to find this. Easier than patching that part of the script.
     && touch /.bashrc \
 
-# Set the mininet tag to install to be 2.2.1
-    && cd mininet; git checkout -b 2.2.1 2.2.1; cd .. \
-
 # Proceed with the install.
     && chmod +x $MININET_INSTALLER \
     && ./$MININET_INSTALLER -nfv \
