@@ -5,7 +5,7 @@ MAINTAINER Ozzy Johnson <docker@ozzy.io>
 LABEL Description="This image is used to start a mininet env" Vendor="Jing Qiu" Version="1.0"
 
 
-ENV MININET_REPO git@github.com:jingqiuELE/mininet.git 
+ENV MININET_REPO git://github.com/jingqiuELE/mininet
 ENV MININET_INSTALLER mininet/util/install.sh
 ENV INSTALLER_SWITCHES -fbinptvwyx
 
