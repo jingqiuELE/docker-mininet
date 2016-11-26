@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-MAINTAINER Ozzy Johnson <docker@ozzy.io>
+MAINTAINER Jing Qiu <aqiu0720@gmail.com>
 
 LABEL Description="This image is used to start a mininet env" Vendor="Jing Qiu" Version="1.0"
 
@@ -42,6 +42,8 @@ RUN \
 
 
 VOLUME ["/data"]
+
+WORKDIR /projects/tinyvpn
 
 # Default command.
 CMD ["bash"] 
