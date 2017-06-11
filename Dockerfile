@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.10
 
 MAINTAINER Jing Qiu <aqiu0720@gmail.com>
 
@@ -19,6 +19,7 @@ RUN \
         --yes \
         --no-install-recommends \
         --no-install-suggests \
+    sudo \
     autoconf \
     automake \
     ca-certificates \
@@ -46,4 +47,4 @@ VOLUME ["/data"]
 WORKDIR /projects/tinyvpn
 
 # Default command.
-CMD ["bash"] 
+CMD ["bash"]
